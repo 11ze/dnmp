@@ -1,0 +1,114 @@
+# dnmp alias
+alias dnginx='docker exec -it nginx /bin/sh'
+alias dphp73='docker exec -it php73 /bin/sh'
+alias dphp74='docker exec -it php74 /bin/sh'
+alias dphp80='docker exec -it php80 /bin/sh'
+alias dphp82='docker exec -it php82 /bin/sh'
+alias dmysql5='docker exec -it mysql5 /bin/bash'
+alias dmysql8='docker exec -it mysql8 /bin/bash'
+alias dredis6='docker exec -it redis6 /bin/sh'
+alias dredis7='docker exec -it redis7 /bin/sh'
+
+php73 () {
+    tty=
+    tty -s && tty=--tty
+    docker run \
+        $tty \
+        --interactive \
+        --rm \
+        --volume $PWD:/www:rw \
+        --workdir /www \
+        dnmp-php73 php "$@"
+}
+
+composer73 () {
+    tty=
+    tty -s && tty=--tty
+    docker run \
+        $tty \
+        --interactive \
+        --rm \
+        --user www-data:www-data \
+        --volume ~/dnmp/data/composer:/tmp/composer \
+        --volume $(pwd):/app \
+        --workdir /app \
+        dnmp-php73 composer "$@"
+}
+
+php74 () {
+    tty=
+    tty -s && tty=--tty
+    docker run \
+        $tty \
+        --interactive \
+        --rm \
+        --volume $PWD:/www:rw \
+        --workdir /www \
+        dnmp-php74 php "$@"
+}
+
+composer74 () {
+    tty=
+    tty -s && tty=--tty
+    docker run \
+        $tty \
+        --interactive \
+        --rm \
+        --user www-data:www-data \
+        --volume ~/dnmp/data/composer:/tmp/composer \
+        --volume $(pwd):/app \
+        --workdir /app \
+        dnmp-php74 composer "$@"
+}
+
+php80 () {
+    tty=
+    tty -s && tty=--tty
+    docker run \
+        $tty \
+        --interactive \
+        --rm \
+        --volume $PWD:/www:rw \
+        --workdir /www \
+        dnmp-php80 php "$@"
+}
+
+composer80 () {
+    tty=
+    tty -s && tty=--tty
+    docker run \
+        $tty \
+        --interactive \
+        --rm \
+        --user www-data:www-data \
+        --volume ~/dnmp/data/composer:/tmp/composer \
+        --volume $(pwd):/app \
+        --workdir /app \
+        dnmp-php80 composer "$@"
+}
+
+php82 () {
+    tty=
+    tty -s && tty=--tty
+    docker run \
+        $tty \
+        --interactive \
+        --rm \
+        --volume $PWD:/www:rw \
+        --workdir /www \
+        dnmp-php82 php "$@"
+}
+
+composer82 () {
+    tty=
+    tty -s && tty=--tty
+    docker run \
+        $tty \
+        --interactive \
+        --rm \
+        --user www-data:www-data \
+        --volume ~/dnmp/data/composer:/tmp/composer \
+        --volume $(pwd):/app \
+        --workdir /app \
+        dnmp-php82 composer "$@"
+}
