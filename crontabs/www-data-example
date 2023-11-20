@@ -1,0 +1,5 @@
+# do daily/weekly/monthly maintenance
+# min   hour    day     month   weekday command
+* * * * * echo "I'm fine." >> /www/php82_cron_health_check.txt
+
+# 将此文件重命名为希望执行此配置的用户，例如 www-data
