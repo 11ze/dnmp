@@ -1,0 +1,18 @@
+name: sync-to-gitee
+
+on:
+  push:
+    branches: [11ze]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@v1
+        with:
+          source-repo: git@github.com:11ze/dnmp.git
+          destination-repo: git@gitee.com:ze11/dnmp.git
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
