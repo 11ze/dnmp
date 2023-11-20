@@ -5,3 +5,5 @@
 *.tgz binary
 *.zip binary
 *.gz binary
+*.ttf binary
+*.phar binary
