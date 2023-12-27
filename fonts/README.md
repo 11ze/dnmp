@@ -4,6 +4,6 @@
 
 - simkai.ttf 楷书
 - simli.ttf 隶书
-- simsun.ttc/ttf 宋体
+- simsun.ttf 宋体
 
 下载：`https://cdn.jsdelivr.net/gh/11ze/dnmp@11ze/fonts/simkai.ttf`
