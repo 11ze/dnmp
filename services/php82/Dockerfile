@@ -5,12 +5,13 @@ FROM ${PHP_VERSION}
 ARG TZ
 ARG PHP_EXTENSIONS
 ARG CONTAINER_PACKAGE_URL
-
+ARG COMPOSER_URL
 
 RUN if [ "${CONTAINER_PACKAGE_URL}" != "" ] ; then sed -i "s/dl-cdn.alpinelinux.org/${CONTAINER_PACKAGE_URL}/g" /etc/apk/repositories ; fi
 
 COPY ./extensions /tmp/extensions
 WORKDIR /tmp/extensions
+
 RUN chmod +x install.sh \
     && sh install.sh \
     && rm -rf /tmp/extensions
@@ -19,7 +20,7 @@ ADD ./extensions/install-php-extensions  /usr/local/bin/
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions
 
-RUN apk --no-cache add tzdata libreoffice \
+RUN apk --no-cache add tzdata \
     # 下面这部分是 wkhtmltopdf 需要的依赖
     libstdc++ \
     libx11 \
@@ -35,6 +36,7 @@ RUN apk --no-cache add tzdata libreoffice \
     # ttf-dejavu \ # 中文字体，但还是使用下面 front/* 的中文字体
     # && rm -rf /var/cache/apk/* \
     # 上面这部分是 wkhtmltopdf 需要的依赖
+    libreoffice \
     mysql-client \
     && cp "/usr/share/zoneinfo/$TZ" /etc/localtime \
     && echo "$TZ" > /etc/timezone
@@ -46,7 +48,7 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 
 # Install composer and change it's cache home
-RUN curl -o /usr/bin/composer https://mirrors.aliyun.com/composer/composer.phar \
+RUN curl -o /usr/bin/composer https://${COMPOSER_URL}/composer/composer.phar \
     && chmod +x /usr/bin/composer
 ENV COMPOSER_HOME=/tmp/composer
 

@@ -44,6 +44,7 @@ services:
       args:
         PHP_VERSION: php:${PHP82_VERSION}-fpm-alpine
         CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        COMPOSER_URL: ${COMPOSER_URL}
         PHP_EXTENSIONS: ${PHP82_EXTENSIONS}
         INSTALL_APPS: ${PHP_INSTALL_APPS}
         TZ: '$TZ'
@@ -69,6 +70,7 @@ services:
   #      args:
   #        PHP_VERSION: php:${PHP80_VERSION}-fpm-alpine
   #        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+  #        COMPOSER_URL: ${COMPOSER_URL}
   #        PHP_EXTENSIONS: ${PHP80_EXTENSIONS}
   #        INSTALL_APPS: ${PHP_INSTALL_APPS}
   #        TZ: "$TZ"
@@ -92,6 +94,7 @@ services:
       args:
         PHP_VERSION: php:${PHP74_VERSION}-fpm-alpine
         CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        COMPOSER_URL: ${COMPOSER_URL}
         PHP_EXTENSIONS: ${PHP74_EXTENSIONS}
         INSTALL_APPS: ${PHP_INSTALL_APPS}
         TZ: '$TZ'
@@ -115,6 +118,7 @@ services:
       args:
         PHP_VERSION: php:${PHP73_VERSION}-fpm-alpine
         CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        COMPOSER_URL: ${COMPOSER_URL}
         PHP_EXTENSIONS: ${PHP73_EXTENSIONS}
         INSTALL_APPS: ${PHP_INSTALL_APPS}
         TZ: '$TZ'
