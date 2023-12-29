@@ -35,6 +35,7 @@ RUN apk --no-cache add tzdata libreoffice \
     # ttf-dejavu \ # 中文字体，但还是使用下面 front/* 的中文字体
     # && rm -rf /var/cache/apk/* \
     # 上面这部分是 wkhtmltopdf 需要的依赖
+    mysql-client \
     && cp "/usr/share/zoneinfo/$TZ" /etc/localtime \
     && echo "$TZ" > /etc/timezone
 
