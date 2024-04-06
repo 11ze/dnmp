@@ -38,6 +38,32 @@ services:
       #default:
       #  ipv4_address: 10.0.0.10
 
+  php83:
+    build:
+      context: ./services/php83
+      args:
+        PHP_VERSION: php:${PHP83_VERSION}-fpm-alpine
+        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        COMPOSER_URL: ${COMPOSER_URL}
+        PHP_EXTENSIONS: ${PHP83_EXTENSIONS}
+        INSTALL_APPS: ${PHP_INSTALL_APPS}
+        TZ: '$TZ'
+    container_name: php83
+    volumes:
+      - ${SOURCE_DIR}:/www/:rw
+      - ${PHP83_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+      - ${PHP83_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ${PHP83_LOG_DIR}:/var/log/php
+      - ${DATA_DIR}/composer83:/tmp/composer
+      - ${PHP_SSH_DIR}:/root/.ssh
+      - ${FONT_DIR}:/usr/share/fonts/custom:r
+      - ${PHP83_CRONTABS}:/etc/crontabs/:rw
+    restart: always
+    cap_add:
+      - SYS_PTRACE
+    networks:
+      - default
+
   php82:
     build:
       context: ./services/php82
