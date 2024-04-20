@@ -1,5 +1,5 @@
 ARG PHP_VERSION
-FROM surnet/alpine-wkhtmltopdf:3.16.2-0.12.6-full as wkhtmltopdf
+FROM surnet/alpine-wkhtmltopdf:3.19.1-0.12.6-full as wkhtmltopdf
 FROM ${PHP_VERSION}
 
 ARG TZ
@@ -26,7 +26,7 @@ RUN apk --no-cache add tzdata \
     libx11 \
     libxrender \
     libxext \
-    libssl1.1 \
+    libssl3 \
     ca-certificates \
     fontconfig \
     freetype \
