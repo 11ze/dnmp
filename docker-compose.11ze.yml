@@ -106,6 +106,8 @@ services:
   #      - ${PHP80_LOG_DIR}:/var/log/php
   #      - ${DATA_DIR}/composer80:/tmp/composer
   #      - ${PHP_SSH_DIR}:/root/.ssh
+  #      - ${FONT_DIR}:/usr/share/fonts/custom:r
+  #      - ${PHP80_CRONTABS}:/etc/crontabs/:rw
   #    restart: always
   #    cap_add:
   #      - SYS_PTRACE
@@ -130,6 +132,8 @@ services:
       - ${PHP74_LOG_DIR}:/var/log/php
       - ${DATA_DIR}/composer74:/tmp/composer
       - ${PHP_SSH_DIR}:/root/.ssh
+      - ${FONT_DIR}:/usr/share/fonts/custom:r
+      - ${PHP74_CRONTABS}:/etc/crontabs/:rw
     restart: always
     cap_add:
       - SYS_PTRACE
@@ -154,6 +158,8 @@ services:
       - ${PHP73_LOG_DIR}:/var/log/php
       - ${DATA_DIR}/composer73:/tmp/composer
       - ${PHP_SSH_DIR}:/root/.ssh
+      - ${FONT_DIR}:/usr/share/fonts/custom:r
+      - ${PHP73_CRONTABS}:/etc/crontabs/:rw
     restart: always
     cap_add:
       - SYS_PTRACE
