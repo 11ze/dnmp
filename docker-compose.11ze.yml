@@ -286,7 +286,7 @@ services:
 
   phpmyadmin8:
     platform: linux/amd64
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin:latest
     container_name: phpmyadmin8
     ports:
       - '${PHPMYADMIN8_HOST_PORT}:80'
@@ -303,7 +303,7 @@ services:
 
   phpmyadmin5:
     platform: linux/amd64
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin:latest
     container_name: phpmyadmin5
     ports:
       - '${PHPMYADMIN5_HOST_PORT}:80'
