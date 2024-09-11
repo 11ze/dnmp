@@ -285,7 +285,6 @@ services:
   #          - default
 
   phpmyadmin8:
-    platform: linux/amd64
     image: phpmyadmin:latest
     container_name: phpmyadmin8
     ports:
@@ -302,7 +301,6 @@ services:
       - TZ=$TZ
 
   phpmyadmin5:
-    platform: linux/amd64
     image: phpmyadmin:latest
     container_name: phpmyadmin5
     ports:
