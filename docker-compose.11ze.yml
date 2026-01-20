@@ -167,7 +167,6 @@ services:
       - default
 
   mysql8:
-    platform: linux/amd64
     image: mysql/mysql-server:${MYSQL8_VERSION}
     container_name: mysql8
     ports:
