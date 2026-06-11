@@ -38,6 +38,8 @@ RUN apk --no-cache add tzdata \
     # 上面这部分是 wkhtmltopdf 需要的依赖
     libreoffice \
     mysql-client \
+    zip \
+    unzip \
     && cp "/usr/share/zoneinfo/$TZ" /etc/localtime \
     && echo "$TZ" > /etc/timezone
 
